@@ -1,23 +1,18 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Text.Json;
-using System.Threading.Tasks;
 using WebApplication1.Models;
 using static WebApplication1.Models.Api;
+using NLog;
 
 namespace WebApplication1.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
+        private static Logger log = LogManager.GetCurrentClassLogger();
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -40,17 +35,10 @@ namespace WebApplication1.Controllers
                 
                 return Math.Pow(Convert.ToInt32(a), 2).ToString();
             }
-            catch (OverflowException)
+            catch (Exception ex)
             {
-                return "Error, debe ingresar un numero entero";
-            }
-            catch (FormatException)
-            {
-                return "Error, debe ingresar un numero";
-            }
-            catch (ArgumentNullException)
-            {
-                return "Error, campos vacios";
+                log.Error(ex.Message);                
+                return "Error, " + ex.Message.ToString().ToLower();
             }
 
         }
@@ -62,21 +50,10 @@ namespace WebApplication1.Controllers
 
                 return (Convert.ToInt32(a) / Convert.ToInt32(b)).ToString();
             }
-            catch (DivideByZeroException)
+            catch (Exception ex)
             {
-                return "Error, divición por 0";
-            }
-            catch (OverflowException)
-            {
-                return "Error, debe ingresar un numero entero";
-            }
-            catch (FormatException)
-            {
-                return "Error, debe ingresar un numero";
-            }
-            catch (ArgumentNullException)
-            {
-                return "Error, campos vacios";
+                log.Error(ex.Message);
+                return "Error, " + ex.Message.ToString().ToLower();
             }
         }
 
@@ -94,9 +71,10 @@ namespace WebApplication1.Controllers
 
                 return listadoProv;
             }
-            catch (NullReferenceException)
+            catch (Exception ex)
             {
-                return "La lista no se copio correctamente";
+                log.Error(ex.Message);
+                return "Error, " + ex.Message.ToString().ToLower();
             }
         }
 
@@ -106,21 +84,10 @@ namespace WebApplication1.Controllers
             {
                 return " Uso " + (float.Parse(litros)/ Convert.ToInt32(km)).ToString() + "l por km ";
             }
-            catch (DivideByZeroException)
+            catch (Exception ex)
             {
-                return "Error, divición por 0";
-            }
-            catch (OverflowException)
-            {
-                return "Error, debe ingresar un numero entero";
-            }
-            catch (FormatException)
-            {
-                return "Error, debe ingresar un numero";
-            }
-            catch (ArgumentNullException)
-            {
-                return "Error, campos vacios";
+                log.Error(ex.Message);
+                return "Error, " + ex.Message.ToString().ToLower();
             }
         }
 

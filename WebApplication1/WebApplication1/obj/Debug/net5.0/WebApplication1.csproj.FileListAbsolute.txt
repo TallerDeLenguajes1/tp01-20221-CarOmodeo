@@ -39,3 +39,4 @@ C:\Users\Caro\source\repos\tp01-20221-CarOmodeo\WebApplication1\WebApplication1\
 C:\Users\Caro\source\repos\tp01-20221-CarOmodeo\WebApplication1\WebApplication1\obj\Debug\net5.0\WebApplication1.genruntimeconfig.cache
 C:\Users\Caro\source\repos\tp01-20221-CarOmodeo\WebApplication1\WebApplication1\obj\Debug\net5.0\WebApplication1.csproj.CopyComplete
 C:\Users\Caro\source\repos\tp01-20221-CarOmodeo\WebApplication1\WebApplication1\obj\Debug\net5.0\Razor\Views\Home\Problema3.cshtml.g.cs
+C:\Users\Caro\source\repos\tp01-20221-CarOmodeo\WebApplication1\WebApplication1\bin\Debug\net5.0\NLog.dll
